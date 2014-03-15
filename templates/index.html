@@ -1,4 +1,18 @@
 {% extends "layout.html" %}
-{% block title %}{% endblock %}
+{% block title %}index{% endblock %}
 {% block body %}
+<div class="large-8 medium-8 small-8 columns">
+	<h1>Posts</h1>
+	<hr>
+	<ul>
+	</ul>
+</div>
+<div class="large-4 medium-4 small-4 columns">
+	<div class="sidebar">
+		<h5>Search posts</h5>
+		<form>
+			<input tabindex="1" id="autocomplete" type="search" placeholder="Posts" autocomplete="off">
+		</form>
+	</div>
+</div>
 {% endblock %}

@@ -2,16 +2,27 @@
 <!--[if IE 9]><html class="lt-ie10" lang="en" ><![endif]-->
 <html class="no-js" lang="ja">
 <head>
-    <meta charset=utf-8">
+	<meta charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ title }}</title>
+	<title>{% block title %}{% endblock %} | petulant-wallhack</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='foundation/css/normalize.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='foundation/css/foundation.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 	<script src="{{ url_for('static', filename='foundation/js/vendor/modernizr.js') }}"></script>
 </head>
 <body>
+	<nav class="top-bar" data-topbar>
+		<ul class="title-area">
+			<li class="name">
+				<h1><a href="/">petulant-wallhack</a></h1>
+			</li>
+			<li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+		</ul>
+	</nav>
+	<div class="row">
 	{% block body %}
 	{% endblock %}
+	</div>
 	<script src="{{ url_for('static', filename='foundation/js/vendor/jquery.js') }}"></script>
 	<script src="{{ url_for('static', filename='foundation/js/foundation.min.js') }}"></script>
 </body>

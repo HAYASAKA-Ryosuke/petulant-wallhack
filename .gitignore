@@ -1,10 +1,6 @@
 bin/
 include/
 lib/
-
-static/fastclick
-static/foundation
-static/jquery
-static/jquery.cookie
-static/jquery-placeholder
-static/modernizr
+!static/
+static/*
+!static/css/
