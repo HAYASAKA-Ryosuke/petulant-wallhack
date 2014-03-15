@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" ><![endif]-->
+<html class="no-js" lang="ja">
+<head>
+    <meta charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title }}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='foundation/css/normalize.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='foundation/css/foundation.min.css') }}">
+	<script src="{{ url_for('static', filename='foundation/js/vendor/modernizr.js') }}"></script>
+</head>
+<body>
+	{% block body %}
+	{% endblock %}
+	<script src="{{ url_for('static', filename='foundation/js/vendor/jquery.js') }}"></script>
+	<script src="{{ url_for('static', filename='foundation/js/foundation.min.js') }}"></script>
+</body>
+</html>
