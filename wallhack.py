@@ -1,13 +1,13 @@
 from flask   import Flask, render_template, request
 import mongoengine
 
-mongoengine.connect("wallhacke-test")
+mongoengine.connect("wallhackexam")
 
 app = Flask(__name__)
 class Student(mongoengine.Document):
     name= mongoengine.StringField()
 
-posts = Student()
+posts = Student
 
 
 @app.route("/", methods=['GET', 'POST'])
