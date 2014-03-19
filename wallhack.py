@@ -1,10 +1,14 @@
 from flask   import Flask, render_template, request
-from pymongo import MongoClient
+import mongoengine
 
-client = MongoClient('localhost', 27017)
-posts  = client['mongotest']['testData']
+mongoengine.connect("wallhacke-test")
 
 app = Flask(__name__)
+class Student(mongoengine.Document):
+    name= mongoengine.StringField()
+
+posts = Student()
+
 
 @app.route("/", methods=['GET', 'POST'])
 def index():

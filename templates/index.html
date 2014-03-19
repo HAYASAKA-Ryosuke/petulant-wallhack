@@ -5,8 +5,8 @@
 	<h1>Posts</h1>
 	<hr>
 	<ul>
-		{% for post in posts.find() %}
-		<li>{{ post['name'] }}</li>
+		{% for post in posts.objects %}
+		<li>{{ post.name }}</li>
 		{% endfor %}
 	</ul>
 </div>
