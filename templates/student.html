@@ -38,13 +38,15 @@
     </form>
 
     <ul>
-        {% for post in posts.objects %}
-        <li>{{ post.studentnum }}</li>
-        <ul>
-            <li>{{ post.name }}</li>
-            <li>{{ post.classroom }}</li>
-        </ul>
-        {% endfor %}
+        {% if posts.objects.count() > 0 %}
+            {% for post in posts.objects[posts.objects.count()-5:] %}
+            <li>{{ post.studentnum }}</li>
+            <ul>
+                <li>{{ post.name }}</li>
+                <li>{{ post.classroom }}</li>
+            </ul>
+            {% endfor %}
+        {% endif %}
     </ul>
     </div>
 </div>
