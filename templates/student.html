@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}index{% endblock %}
+{% block body %}
+
+<div class="large-8 medium-8 small-8 columns">
+    <h1>Info</h1>
+    <hr>
+    <form action="/student" method="post">
+        <fieldset>
+
+        <legend>StudentForm</legend>
+        
+        <label>Student Name
+            <input type="text" name="studentname" placeholder="">
+        </label>
+
+        <label>Student Number
+            <input type="text" name="studentnum" placeholder="">
+        </label>
+
+        <label>ClassRoom</label>
+        <input type="radio" name="classroom" value="A" id="classroomA"><label for="classroom">A</label>
+        <input type="radio" name="classroom" value="B" id="classroomB"><label for="classroom">B</label>
+        <input type="radio" name="classroom" value="C" id="classroomC"><label for="classroom">C</label>
+        <input type="radio" name="classroom" value="D" id="classroomD"><label for="classroom">D</label>
+
+        </fieldset>
+
+        <button>sendbutton</button>
+
+    </form>
+</div>
+<div class="large-4 medium-4 small-4 columns">
+    <div class="sidebar">
+    <h5>Search posts</h5>
+    <form>
+        <input tabindex="1" id="autocomplete" type="search" placeholder="Posts" autocomplete="off">
+    </form>
+
+    <ul>
+        {% for post in posts.objects %}
+        <li>{{ post.studentnum }}</li>
+        <ul>
+            <li>{{ post.name }}</li>
+            <li>{{ post.classroom }}</li>
+        </ul>
+        {% endfor %}
+    </ul>
+    </div>
+</div>
+{% endblock %}

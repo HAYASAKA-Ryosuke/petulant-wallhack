@@ -1,50 +1,17 @@
 {% extends "layout.html" %}
 {% block title %}index{% endblock %}
 {% block body %}
-<div class="large-8 medium-8 small-8 columns">
-	<h1>Posts</h1>
-	<hr>
-	<ul>
-		{% for post in posts.objects %}
-		<li>{{ post.name }}</li>
-		{% endfor %}
-	</ul>
-</div>
-<div class="large-4 medium-4 small-4 columns">
-	<div class="sidebar">
-		<h5>Search posts</h5>
-		<form>
-			<input tabindex="1" id="autocomplete" type="search" placeholder="Posts" autocomplete="off">
-		</form>
-	</div>
-        <form action="/student" method="post">
-                <fieldset>
-                    <legend>Studentname</legend>
-        
-                    <label>Input Name
-                        <input type="text" placeholder="">
-                    </label>
-                </fieldset>
 
-                    <legend>classroom</legend>
-        	    <div class="row">
-                        <div class="large-6 columns">
-                            <label>Choose Your Favorite</label>
-                            <input type="radio" name="classroom" value="A" id="classroomA"><label for="classroom">A</label>
-                            <input type="radio" name="classroom" value="B" id="classroomB"><label for="classroom">B</label>
-                            <input type="radio" name="classroom" value="C" id="classroomC"><label for="classroom">C</label>
-                            <input type="radio" name="classroom" value="D" id="classroomD"><label for="classroom">D</label>
-                        </div>
-                    </div>
-                    <label>class room
-                        <input type="text" placeholder="">
-                    </label>
-                </fieldset>
-                 <label>Input Name
-                        <input type="text" placeholder="">
-                    </label>
-                </fieldset>
-	    <button>sendbutton</button>
-        </form>
-        </div>
+<div class="large-6 columns">
+    <h1>Student info view</h1>
+    <hr>
+        <a href="/student">infoview</a>
+
+</div>
+<div class="large-6 columns">
+    <h1>Registration for Student</h1>
+    <hr>
+    <a href="/student">Registration</a>
+
+</div>
 {% endblock %}

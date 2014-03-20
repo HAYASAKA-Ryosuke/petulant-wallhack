@@ -3,21 +3,32 @@ import mongoengine
 
 mongoengine.connect("wallhackexam")
 
-app = Flask(__name__)
 class Student(mongoengine.Document):
-    name= mongoengine.StringField()
+    name = mongoengine.StringField()
+    studentnum = mongoengine.IntField()
+    classroom = mongoengine.StringField()
 
-posts = Student
+Student.drop_collection()
+posts = Student()
+
+app = Flask(__name__)
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
 def index():
-    if request.method == 'POST':
-        if request.form['check'] == "yes!":
-            return "True"
-        else:
-            return "False"
-    else:
-        return render_template('index.html', posts=posts)
+    return render_template('index.html')
 
+@app.route("/student", methods=['GET', 'POST'])
+def student():
+    if request.method == 'POST':
+        print request.form['studentname']
+        print request.form['studentnum']
+        print request.form['classroom']
+        posts.name = request.form['studentname'] 
+        posts.studentnum = request.form['studentnum']
+        posts.classroom = request.form['classroom']
+        posts.save()
+        return render_template('student.html', posts=Student)
+    else:
+        return render_template('student.html', posts=Student)
 app.run(debug=True, host='0.0.0.0')
