@@ -32,8 +32,11 @@ def student():
     else:
         return render_template('student.html', posts=Student)
 
-@app.route("/classroom/a")
+@app.route("/classroom/a", methods=['GET'])
 def classroom():
-    return render_template('classroom.html', posts=Student)
+    classa = Student.objects(classroom='A')
+    for data in classa:
+        print data.name
+    return render_template('classroom.html', posts=classa)
 
 app.run(debug=True, host='0.0.0.0')
