@@ -7,14 +7,14 @@
 	<table cellspacing="0">
 		<thead>
 			<tr>
-				<th>生徒番号</th>
+				<th class="text-center">生徒番号</th>
 				<th>氏名</th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for post in posts.objects(classroom="A") %}
 			<tr>
-				<td>{{ post.studentnum }}</td>
+				<td class="text-center">{{ post.studentnum }}</td>
 				<td>{{ post.name }}</td>
 			</tr>
 			{% endfor %}
