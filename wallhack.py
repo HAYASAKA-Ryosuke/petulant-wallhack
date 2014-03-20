@@ -17,7 +17,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route("/student", methods=['GET', 'POST'])
+@app.route("/student-add", methods=['GET', 'POST'])
 def student():
     if request.method == 'POST':
         print(request.form['studentname'])
@@ -37,4 +37,10 @@ def classroom(classname):
     room = Student.objects(classroom=classname.upper())
     return render_template('classroom.html', posts=room)
 
+@app.route("/classroom/<classname>/<studentnumber>", methods=['GET'])
+def studentprofile(classname,studentnumber):
+    room = Student.objects(classroom=classname.upper(),studentnum=studentnumber)
+    #return render_template('classroom.html', posts=room)
+    #return room.name
+    return room[0].name
 app.run(debug=True, host='0.0.0.0')
