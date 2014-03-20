@@ -8,8 +8,7 @@ class Student(mongoengine.Document):
     studentnum = mongoengine.IntField()
     classroom = mongoengine.StringField()
 
-Student.drop_collection()
-posts = Student()
+# Student.drop_collection()
 
 app = Flask(__name__)
 
@@ -24,6 +23,7 @@ def student():
         print(request.form['studentname'])
         print(request.form['studentnum'])
         print(request.form['classroom'])
+        posts = Student()
         posts.name = request.form['studentname'] 
         posts.studentnum = request.form['studentnum']
         posts.classroom = request.form['classroom']
