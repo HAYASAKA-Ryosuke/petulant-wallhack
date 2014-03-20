@@ -8,7 +8,7 @@ class Student(mongoengine.Document):
     studentnum = mongoengine.IntField()
     classroom = mongoengine.StringField()
 
-# Student.drop_collection()
+#Student.drop_collection()
 
 app = Flask(__name__)
 
@@ -32,11 +32,9 @@ def student():
     else:
         return render_template('student.html', posts=Student)
 
-@app.route("/classroom/a", methods=['GET'])
-def classroom():
-    classa = Student.objects(classroom='A')
-    for data in classa:
-        print data.name
-    return render_template('classroom.html', posts=classa)
+@app.route("/classroom/<classname>", methods=['GET'])
+def classroom(classname):
+    room = Student.objects(classroom=classname.upper())
+    return render_template('classroom.html', posts=room)
 
 app.run(debug=True, host='0.0.0.0')
