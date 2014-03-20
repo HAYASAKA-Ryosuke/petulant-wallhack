@@ -31,4 +31,9 @@ def student():
         return redirect(url_for('student'))
     else:
         return render_template('student.html', posts=Student)
+
+@app.route("/classroom/a")
+def classroom():
+    return render_template('classroom.html', posts=Student)
+
 app.run(debug=True, host='0.0.0.0')
