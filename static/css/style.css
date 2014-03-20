@@ -11,3 +11,11 @@ h1 {
 	font-size: 0.77778rem;
 	font-weight: bold;
 }
+
+table {
+	width: 100%;
+}
+
+tr th:first-child {
+	width: 100px;
+}

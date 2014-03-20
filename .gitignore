@@ -4,3 +4,4 @@ lib/
 !static/
 static/*
 !static/css/
+nohup.out
