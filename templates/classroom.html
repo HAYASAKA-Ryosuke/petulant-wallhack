@@ -13,10 +13,11 @@
 		</thead>
 		<tbody>
 			{% for post in posts %}
-			<tr>
-				<td class="text-center">{{ post.studentnum }}</td>
-				<td>{{ post.name }}</td>
-			</tr>
+			    <tr>
+				    <a href=/classroom/{{ post.class }}/{{ post.studentnum }}>
+                    <td class="text-center">{{ post.studentnum }}</td></a>
+				    <td>{{ post.name }}</td>
+			    </tr>
 			{% endfor %}
 		</tbody>
 	</table>

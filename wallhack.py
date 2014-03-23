@@ -28,9 +28,9 @@ def student():
         posts.studentnum = request.form['studentnum']
         posts.classroom = request.form['classroom']
         posts.save()
-        return redirect(url_for('student'))
+        return redirect(url_for('student-add'))
     else:
-        return render_template('student.html', posts=Student)
+        return render_template('student-add.html', posts=Student)
 
 @app.route("/classroom/<classname>", methods=['GET'])
 def classroom(classname):
