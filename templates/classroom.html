@@ -14,9 +14,8 @@
 		<tbody>
 			{% for post in posts %}
 			    <tr>
-				    <a href=/classroom/{{ post.class }}/{{ post.studentnum }}>
-                    <td class="text-center">{{ post.studentnum }}</td></a>
-				    <td>{{ post.name }}</td>
+				    <td class="text-center"><a href="/classroom/{{ post.classroom }}/{{ post.studentnum }}">{{ post.studentnum }}</a></td>
+				    <td><a href="/classroom/{{ post.classroom }}/{{ post.studentnum }}">{{ post.name }}</a></td>
 			    </tr>
 			{% endfor %}
 		</tbody>
