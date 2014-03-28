@@ -49,7 +49,10 @@ def student():
 @app.route("/classroom/<classname>", methods=['GET'])
 def classroom(classname):
     room = Student.objects(classroom=classname.upper())
-    return render_template('classroom.html', posts=room)
+    if(request.args.get('sort',None) == 'reverse'):
+        return render_template('classroom.html', posts=room.order_by("-studentnum"))
+    else:
+        return render_template('classroom.html', posts=room)
 
 @app.route("/classroom/<classname>/<studentnumber>", methods=['GET','POST'])
 def studentprofile(classname,studentnumber):

@@ -40,6 +40,14 @@
 		<li><a href="/classroom/c">Classroom C</a></li>
 		<li><a href="/classroom/d">Classroom D</a></li>
     </ul>
+    <form method="get" action="/classroom/{{ posts[0].classroom }}">
+    <h5>sort for student number</h5>
+    <select name="sort">
+    <option value="forward">Ascending</option>
+    <option value="reverse">Descending</option>
+    </select>
+    <input type="submit" value = "send" />
+    </form>
     </div>
 </div>
 {% endblock %}
