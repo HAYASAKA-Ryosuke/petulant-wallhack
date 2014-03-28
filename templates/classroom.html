@@ -9,13 +9,23 @@
 			<tr>
 				<th class="text-center">生徒番号</th>
 				<th>氏名</th>
+				<th>math</th>
+				<th>english</th>
+				<th>science</th>
+				<th>social</th>
+				<th>language</th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for post in posts %}
 			    <tr>
-				    <td class="text-center"><a href="/classroom/{{ post.classroom }}/{{ post.studentnum }}">{{ post.studentnum }}</a></td>
-				    <td><a href="/classroom/{{ post.classroom }}/{{ post.studentnum }}">{{ post.name }}</a></td>
+				    <td style="text-align: center" class="text-center"><a href="/classroom/{{ post.classroom }}/{{ post.studentnum }}">{{ post.studentnum }}</a></td>
+				    <td style="text-align: center"><a href="/classroom/{{ post.classroom }}/{{ post.studentnum }}">{{ post.name }}</a></td>
+                    <td style="text-align: center">{{ post.exam[0].score }}</td>
+                    <td style="text-align: center">{{ post.exam[1].score }}</td>
+                    <td style="text-align: center">{{ post.exam[2].score }}</td>
+                    <td style="text-align: center">{{ post.exam[3].score }}</td>
+                    <td style="text-align: center">{{ post.exam[4].score }}</td>
 			    </tr>
 			{% endfor %}
 		</tbody>
