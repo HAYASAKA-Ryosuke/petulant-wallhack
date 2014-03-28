@@ -1,4 +1,4 @@
-from flask   import Flask, render_template, request, redirect, url_for
+from flask   import Flask, render_template, request
 import mongoengine
 
 mongoengine.connect("wallhackexam")
@@ -42,7 +42,7 @@ def student():
         student_id = request.form['classroom'] + str(request.form['studentnum'])
         posts.studentid = student_id
         posts.save()
-        return redirect(url_for('student-add'))
+        return render_template('student-add.html', posts=Student)
     else:
         return render_template('student-add.html', posts=Student)
 
@@ -86,7 +86,7 @@ def studentprofile(classname,studentnumber):
         language.datetime= request.form["languagedatetime"]
         language.score = request.form["languagescore"]
 
-        student.exam=[math, english, science, social, language]
+        student.exam.extend([math, english, science, social, language])
 
         math.save()
         english.save()
