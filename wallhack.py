@@ -16,10 +16,13 @@ class Student(mongoengine.Document):
     studentid = mongoengine.StringField(primary_key=True)
     exam = mongoengine.ReferenceField("Exam")
 
-#Student.drop_collection()
-
 app = Flask(__name__)
 
+
+@app.route("/deleteall", methods=['GET'])
+def deleteall():
+    Student.drop_collection()
+    return "deleted"
 
 @app.route("/", methods=['GET'])
 def index():
@@ -31,10 +34,12 @@ def student():
         print(request.form['studentname'])
         print(request.form['studentnum'])
         print(request.form['classroom'])
-        posts = Exam()
+        posts = Student()
         posts.name = request.form['studentname'] 
         posts.studentnum = request.form['studentnum']
         posts.classroom = request.form['classroom']
+        student_id = request.form['classroom'] + str(request.form['studentnum'])
+        posts.studentid = student_id
         posts.save()
         return redirect(url_for('student-add'))
     else:
@@ -49,10 +54,10 @@ def classroom(classname):
 def studentprofile(classname,studentnumber):
     room = Student.objects(classroom=classname.upper(),studentnum=studentnumber)
     if request.method == 'POST':
-        print "id"
-        print room[0].studentid
-        print room[0].studentnum
-        print room[0].classroom
+        print("id")
+        print(room[0].studentid)
+        print(room[0].studentnum)
+        print(room[0].classroom)
         student = Student(studentid=room[0].classroom+str(room[0].studentnum))
         student.name = room[0].name
         student.studentnum = room[0].studentnum
