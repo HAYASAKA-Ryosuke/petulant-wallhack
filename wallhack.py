@@ -49,71 +49,80 @@ def classroom(classname):
 def studentprofile(classname,studentnumber):
     room = Student.objects(classroom=classname.upper(),studentnum=studentnumber)
     if request.method == 'POST':
-        student = Student(studentid=room.studentid)
-        student.name = room[0].Name
+        print "id"
+        print room[0].studentid
+        print room[0].studentnum
+        print room[0].classroom
+        student = Student(studentid=room[0].classroom+str(room[0].studentnum))
+        student.name = room[0].name
         student.studentnum = room[0].studentnum
         student.classroom = room[0].classroom
-        student.studentid = room[0].studentid
+        student.studentid = room[0].classroom+str(room[0].studentnum)
         math = Exam()
         math.summary = request.form["summary"]
         math.subject = "math"
         math.datetime= request.form["mathdatetime"]
         math.score = request.form["mathscore"]
-        room.exam=math
+        student.exam=math
         math.save()
-        room.save()
-        student = Student(studentid=room.studentid)
-        student.name = room[0].Name
+        student.save()
+
+        student = Student(studentid=room[0].classroom+str(room[0].studentnum))
+        student.name = room[0].name
         student.studentnum = room[0].studentnum
         student.classroom = room[0].classroom
-        student.studentid = room[0].studentid
+        student.studentid = room[0].classroom+str(room[0].studentnum)
         english = Exam()
         english.summary = request.form["summary"]
         english.subject = "english"
         english.datetime= request.form["englishdatetime"]
         english.score = request.form["englishscore"]
-        room.exam=english
+        student.exam=english
         english.save()
-        room.save()
-        student = Student(studentid=room.studentid)
-        student.name = room[0].Name
+        student.save()
+
+        student = Student(studentid=room[0].classroom+str(room[0].studentnum))
+        student.name = room[0].name
         student.studentnum = room[0].studentnum
         student.classroom = room[0].classroom
-        student.studentid = room[0].studentid
+        student.studentid = room[0].classroom+str(room[0].studentnum)
         science = Exam()
         science.summary = request.form["summary"]
         science.subject = "science"
         science.datetime= request.form["sciencedatetime"]
         science.score = request.form["sciencescore"]
-        room.exam=science
+        student.exam=science
         science.save()
-        room.save()
-        student = Student(studentid=room.studentid)
-        student.name = room[0].Name
+        student.save()
+
+        student = Student(studentid=room[0].classroom+str(room[0].studentnum))
+        student.name = room[0].name
         student.studentnum = room[0].studentnum
         student.classroom = room[0].classroom
-        student.studentid = room[0].studentid
+        student.studentid = room[0].classroom+str(room[0].studentnum)
         social = Exam()
         social.summary = request.form["summary"]
         social.subject = "social"
         social.datetime= request.form["socialdatetime"]
         social.score = request.form["socialscore"]
-        room.exam=social
+        student.exam=social
         social.save()
-        room.save()
-        student = Student(studentid=room.studentid)
-        student.name = room[0].Name
+        student.save()
+
+        student = Student(studentid=room[0].classroom+str(room[0].studentnum))
+        student.name = room[0].name
         student.studentnum = room[0].studentnum
         student.classroom = room[0].classroom
-        student.studentid = room[0].studentid
+        student.studentid = room[0].classroom+str(room[0].studentnum)
         language = Exam()
         language.summary = request.form["summary"]
         language.subject = "language"
         language.datetime= request.form["languagedatetime"]
         language.score = request.form["languagescore"]
-        room.exam=language
+        student.exam=language
         language.save()
-        room.save()
+        student.save()
+        return render_template('student.html', posts=room)
     else:
         return render_template('student.html', posts=room)
 
