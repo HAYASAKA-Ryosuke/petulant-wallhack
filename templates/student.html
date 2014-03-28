@@ -7,6 +7,16 @@
         <hr>
             <h2>{{ posts[0].name }}</h2>
 
+		<hr>
+		<ul>
+			{% for post in posts[0].exam %}
+			<li>
+				<b>{{ post.subject }}</b>: {{ post.score }}
+			</li>
+			{% endfor %}
+		</ul>
+
+
     <form action="/classroom/{{ posts[0].classroom }}/{{ posts[0].studentnum }}" method="post" >
         <fieldset>
 
