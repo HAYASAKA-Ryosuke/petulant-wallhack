@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block title %}index{% endblock %}
+{% block body %}
+
+    <div class="large-8 medium-8 small-8 columns">
+        <h1>StudentInfo</h1>
+        <hr>
+            <h2>{{ posts[0].name }}</h2>
+
+    <form action="/classroom/{{ posts[0].classroom }}/{{ posts[0].studentnum }}" method="post" >
+        <fieldset>
+
+        <legend>Exam</legend>
+        
+        <label>Summary
+            <input type="text" name="summary" placeholder="">
+        </label>
+
+        <label>Datetime
+            <input type="date" name="mathdatetime" placeholder="">
+        </label>
+
+        <label>Math Score
+            <input type="number" name="mathscore" placeholder="">
+        </label>
+
+        <label>Datetime
+            <input type="date" name="englishdatetime" placeholder="">
+        </label>
+
+        <label>English Score
+            <input type="number" name="englishscore" placeholder="">
+        </label>
+
+        <label>Datetime
+            <input type="date" name="sciencedatetime" placeholder="">
+        </label>
+
+        <label>Science Score
+            <input type="number" name="sciencescore" placeholder="">
+        </label>
+
+        <label>Datetime
+            <input type="date" name="socialdatetime" placeholder="">
+        </label>
+
+        <label>Social Score
+            <input type="number" name="socialscore" placeholder="">
+        </label>
+
+        <label>Datetime
+            <input type="date" name="languagedatetime" placeholder="">
+        </label>
+
+        <label>Language Score
+            <input type="number" name="languegescore" placeholder="">
+        </label>
+
+        <button>sendbutton</button>
+        </fieldset>
+
+
+    </form>
+    </div>
+{% endblock %}
